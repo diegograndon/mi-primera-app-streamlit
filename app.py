@@ -3,6 +3,8 @@ import streamlit as st
 # Título de la app
 st.title("¡Mi primera app!")
 
+opcion = st.selectbox("Elige una opción", ["A", "B", "C"])
+
 # Texto simple
 st.write("Hola, soy [TU NOMBRE] y esta es mi primera aplicación con Streamlit.")
 
