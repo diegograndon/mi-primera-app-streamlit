@@ -3,7 +3,10 @@ import streamlit as st
 # Título de la app
 st.title("¡Mi primera app!")
 
-if st.button("Click aquí"): st.write("¡Botón presionado!")
+st.success("Mensaje de éxito ✅") 
+st.error("Mensaje de error ❌") 
+st.warning("Advertencia ⚠️") 
+st.info("Información ℹ️") 
 
 # Texto simple
 st.write("Hola, soy [TU NOMBRE] y esta es mi primera aplicación con Streamlit.")
