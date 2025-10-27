@@ -3,10 +3,11 @@ import streamlit as st
 # Título de la app
 st.title("¡Mi primera app!")
 
-nombre = st.text_input("Escribe algo") 
-edad = st.number_input("¿Cuántos años tienes?", min_value=0, max_value=120)
-opcion = st.selectbox("Elige una opción", ["A", "B", "C"])
-acepto = st.checkbox("Acepto los términos")
+st.title("Título principal")
+st.header("Encabezado")
+st.subheader("Subencabezado")
+st.write("Texto normal")
+st.markdown("**Texto en negrita** o *cursiva*") 
 
 # Texto simple
 st.write("Hola, soy [TU NOMBRE] y esta es mi primera aplicación con Streamlit.")
