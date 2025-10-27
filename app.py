@@ -3,8 +3,7 @@ import streamlit as st
 # Título de la app
 st.title("¡Mi primera app!")
 
-if st.button("Click aquí"):
-st.write("¡Botón presionado!")
+if st.button("Click aquí"):st.write("¡Botón presionado!")
 
 nombre = st.text_input("Escribe algo") 
 edad = st.number_input("¿Cuántos años tienes?", min_value=0, max_value=120)
