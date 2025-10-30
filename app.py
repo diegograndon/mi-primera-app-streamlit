@@ -1,26 +1,34 @@
 import streamlit as st
 
-# Título de la app
-st.title("¡Mi primera app!")
+# Título de la aplicación
+st.title("🧮 Calculadora de IMC (Índice de Masa Corporal)")
 
-if st.button("Click aquí"):st.write("¡Botón presionado!")
+# --- Entradas del usuario ---
+# Ingreso del peso en kilogramos
+peso = st.number_input("Ingresa tu peso (kg):", min_value=0.0, step=0.1)
 
-nombre = st.text_input("Escribe algo") 
-edad = st.number_input("¿Cuántos años tienes?", min_value=0, max_value=120)
-opcion = st.selectbox("Elige una opción", ["A", "B", "C"])
-acepto = st.checkbox("Acepto los términos")
+# Ingreso de la altura en metros
+altura = st.number_input("Ingresa tu altura (m):", min_value=0.0, step=0.01)
 
-# Texto simple
-st.write("Hola, soy [TU NOMBRE] y esta es mi primera aplicación con Streamlit.")
+# --- Cálculo del IMC ---
+# Verificamos que los valores sean mayores que cero para evitar división por cero
+if peso > 0 and altura > 0:
+    imc = peso / (altura ** 2)  # Fórmula del IMC
+    imc_redondeado = round(imc, 2)
 
-# Un input interactivo
-nombre = st.text_input("¿Cómo te llamas?")
+    # --- Determinamos la categoría del IMC ---
+    if imc < 18.5:
+        categoria = "Bajo peso"
+        color = "blue"
+    elif imc < 25:
+        categoria = "Peso normal"
+        color = "green"
+    elif imc < 30:
+        categoria = "Sobrepeso"
+        color = "orange"
+    else:
+        categoria = "Obesidad"
+        color = "red"
 
-# Respuesta condicional
-if nombre:
-    st.write(f"¡Hola, {nombre}! Bienvenido/a a mi app")
-
-# Un botón
-if st.button("Presiona aquí"):
-    st.balloons()  # Animación de globos
-    st.success("¡Funciona perfectamente!")
+    # --- Mostramos el resultado ---
+    st.metric(label="Tu IMC",
