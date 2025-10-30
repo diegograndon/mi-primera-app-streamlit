@@ -22,4 +22,20 @@ if peso > 0 and altura > 0:
         color = "blue"
     elif imc < 25:
         categoria = "Peso normal"
-        color =
+        color = "green"
+    elif imc < 30:
+        categoria = "Sobrepeso"
+        color = "orange"
+    else:
+        categoria = "Obesidad"
+        color = "red"
+
+    # --- Mostrar resultado ---
+    st.metric(label="Tu IMC", value=imc_redondeado)
+    st.markdown(
+        f"### 🩺 Categoría: <span style='color:{color}'>{categoria}</span>",
+        unsafe_allow_html=True
+    )
+
+else:
+    st.info("Por favor, ingresa tu peso y altura para calcular el IMC.")
